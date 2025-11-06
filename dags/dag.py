@@ -12,7 +12,7 @@ from etl.load import load
 with DAG(
     dag_id='enviTrack',
     start_date=datetime(2025,10,22),
-    schedule='* */6 * * *',
+    schedule='* */12 * * *',
     tags=['project enviTrack'],
     catchup=False
 ) as dag:

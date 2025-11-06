@@ -33,7 +33,7 @@ services:
       - "9000:9000"
     environment:
       CLICKHOUSE_USER: default
-      CLICKHOUSE_PASSWORD: Your_pass
+      CLICKHOUSE_PASSWORD: Nghiemtam05@
       CLICKHOUSE_DB: airflow
     volumes:
       - clickhouse_data:/var/lib/clickhouse

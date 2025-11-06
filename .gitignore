@@ -38,7 +38,7 @@ tmp/
 
 # --- BigQuery / GCP Credentials ---
 # NEVER push your Google Cloud service account key
-*.json
+# *.json
 *.p12
 credentials/
 gcp_keys/
@@ -62,4 +62,5 @@ Thumbs.db
 /Include
 
 utils/sendMail.py
-
+node_modules/
+Include/
