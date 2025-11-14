@@ -12,11 +12,16 @@ import profileRoute from './routes/profileUser.js'
 dotenv.config( {path :"../.env"}) // lưu ý là path này tính từ thư mục node => = node_module
 const port = process.env.BACKEND_PORT;
 const app = express();
+
 app.use(morgan("dev")); // log
-app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true
+}))
 
 // public route
 app.use('/api/auth', authRoute)
