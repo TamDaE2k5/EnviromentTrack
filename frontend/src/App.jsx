@@ -8,21 +8,21 @@ import ProfilePage from "./page/ProfilePage";
 function App() {
   return (
     <>
-    <Toaster richColors/>
-    <BrowserRouter>
-      <Routes>
-        {/* Public route */}
-        <Route path="/signup" element={<SignUpPage/>}/>
-        <Route path="/login" element={<LogInPage/>}/>
-        <Route path='/' element={<Page />}/>
-        {/* Private route*/}
-        <Route path="/profile" element={
-          <ProtectedRoute>
-            <ProfilePage />
-          </ProtectedRoute>
-        }/> 
-      </Routes>
-    </BrowserRouter>
+      <Toaster richColors/>
+      <BrowserRouter>
+        <Routes>
+          {/* Public route */}
+          <Route path="/signup" element={<SignUpPage/>}/>
+          <Route path="/login" element={<LogInPage/>}/>
+          <Route path='/' element={<Page />}/>
+          {/* Private route*/}
+          <Route path="/profile" element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          }/> 
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

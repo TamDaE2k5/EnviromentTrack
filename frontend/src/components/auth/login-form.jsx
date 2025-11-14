@@ -23,7 +23,6 @@ export function LogInForm({ ...props }) {
         nickName: data.nickName,
         pw: data.password,
       });
-      setUser(res.user);
       navigate("/profile");
     } catch (err) {
       console.error(err);
@@ -42,12 +41,12 @@ export function LogInForm({ ...props }) {
             <div>
             {/* User name / Email */}
                 <Label htmlFor="nickName" className=''>Tên tài khoản</Label>
-                <Input type={'text'} id='nickName' {...register('nickName')}/>
+                <Input placeholder='Tên đăng nhập' type={'text'} id='nickName' {...register('nickName')}/>
             </div>
             <div>
                 {/* Password */}
                 <Label htmlFor="password" className="">Mật khẩu</Label>
-                <Input type={'password'} id='password' {...register('password')}/>
+                <Input placeholder='Mật khẩu' type={'password'} id='password' {...register('password')}/>
             </div>
             <div>
                 <Button className='w-full'>Đăng nhập</Button>

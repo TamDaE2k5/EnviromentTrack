@@ -94,7 +94,11 @@ export const logIn = async (req, res)=>{
             maxAge: REFRESH_TOKEN_TTL,
         })
         // trả access token về cho respone
-        return res.status(200).json({mess:`${nickName} đã đăng nhập thành công, accessToken = ${accessToken}`})
+        return res.status(200).json({mess:`${nickName} đã đăng nhập thành công, accessToken = ${accessToken}`,
+                                    accessToken: accessToken,
+                                        user: {
+                                            nickName
+                                        }})
     } catch (error) {
         console.error('Lỗi hệ thống ', error)
         return res.status(500).json({mess:'Server is error'})
