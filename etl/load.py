@@ -20,7 +20,6 @@ def loadWeather(city):
         password=PASS_CLICK_HOUSE
     )
 
-    # Load 
     client.command('CREATE DATABASE IF NOT EXISTS enviTrack')
     client.command('USE enviTrack')
     client.command('''
@@ -38,7 +37,6 @@ def loadWeather(city):
     ) ENGINE = MergeTree()
     ORDER BY (`Thành phố`,`Ngày`, `Catching`)
     ''')
-
     columnName = ["Thành phố", "Quốc gia", "Trạng thái", "Mô tả", "Nhiệt độ",
                   "Tầm nhìn", "Gió", "Ngày", "Thời gian", "Catching"]
     client.insert('Weather', [data], column_names=columnName)
@@ -93,6 +91,6 @@ def load():
     return None
 
 # if __name__ == '__main__':
-    # for city in CITIES:
-    #     loadWeather(CITIES[city])
-    #     loadAQ(CITIES[city])
+#     for city in CITIES:
+#         loadWeather(CITIES[city])
+#         loadAQ(CITIES[city])

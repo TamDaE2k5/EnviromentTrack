@@ -40,11 +40,11 @@ def transformWeather(city):
     now = datetime.now(ZoneInfo("Asia/Ho_Chi_Minh"))
     dataTrans = [
         str(dataRaw['name']),        # ('Thành phố', str(dataRaw['name'])),
-        str(dataRaw['sys']['country']),        # ('Quốc gia', str(dataRaw['sys']['country'])),
+        str(city['country']),        # ('Quốc gia', str(dataRaw['sys']['country'])),
         str(STATUS[weather_id]['name']),        # ('Trạng thái', str(STATUS[weather_id]['name'])),
         str(STATUS[weather_id]['description']),        # ('Mô tả', str(STATUS[weather_id]['description'])),
         convertCelsius(float(dataRaw['main']['temp'])),        # ('Nhiệt độ', convertCelsius(float(dataRaw['main']['temp']))),
-        int(dataRaw['visibility']),        # ('Tầm nhìn', int(dataRaw['visibility'])),
+        int(dataRaw.get('visibility', -1)),        # ('Tầm nhìn', int(dataRaw['visibility'])),
         float(dataRaw['wind']['speed']),        # ('Gió', float(dataRaw['wind']['speed'])),
         now.date(),        # ('Ngày', now.date().strftime("%Y-%m-%d")),
         now,        # ('Thời gian', now.time().strftime("%H:%M:%S")),
