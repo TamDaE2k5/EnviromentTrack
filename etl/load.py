@@ -11,8 +11,7 @@ from dotenv import load_dotenv
 load_dotenv(dotenv_path='.env')
 PASS_CLICK_HOUSE=os.getenv('PASS_CLICK_HOUSE')
 
-def loadWeather(city):
-    data = transformWeather(city)
+def loadWeather(data):
     client = get_client(
         host='clickhouse-server',
         port=8123,
@@ -39,13 +38,12 @@ def loadWeather(city):
     ''')
     columnName = ["Thành phố", "Quốc gia", "Trạng thái", "Mô tả", "Nhiệt độ",
                   "Tầm nhìn", "Gió", "Ngày", "Thời gian", "Catching"]
-    client.insert('Weather', [data], column_names=columnName)
+    client.insert('Weather', data, column_names=columnName)
 
-    print(f'\033[32mLoad dữ liệu thời tiết của {data[0]} thành công\33[0m')
+    print(f'\033[32mLoad dữ liệu thời tiết thành công\33[0m')
     return None
 
-def loadAQ(city):
-    data = transformAQ(city)
+def loadAQ(data):
     client = get_client(
         host='clickhouse-server',
         port=8123,
@@ -80,14 +78,18 @@ def loadAQ(city):
                   'Nồng độ bụi(pm10)','Chỉ số Ozon','Chỉ số NO2','Chỉ số CO','Chỉ số SO2',
                   'Áp suất khí quyển','Độ ẩm','Ngày','Thời gian','Catching']
 
-    client.insert('AQ', [data], column_names=columnName)
-    print(f'\033[32mLoad dữ liệu AQ của {data[0]} thành công\33[0m')
+    client.insert('AQ', data, column_names=columnName)
+    print(f'\033[32mLoad dữ liệu AQ thành công\33[0m')
     return None
 
 def load():
+    dtAQ = []
+    dtWeather = []
     for city in CITIES:
-        loadWeather(CITIES[city])
-        loadAQ(CITIES[city])
+        dtAQ.append(transformAQ(CITIES[city]))
+        dtWeather.append(transformWeather(CITIES[city]))
+    loadWeather(dtWeather)
+    loadAQ(dtAQ)
     return None
 
 # if __name__ == '__main__':

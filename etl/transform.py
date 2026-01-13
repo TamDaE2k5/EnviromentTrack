@@ -45,7 +45,7 @@ def transformWeather(city):
         str(STATUS[weather_id]['description']),        # ('Mô tả', str(STATUS[weather_id]['description'])),
         convertCelsius(float(dataRaw['main']['temp'])),        # ('Nhiệt độ', convertCelsius(float(dataRaw['main']['temp']))),
         int(dataRaw.get('visibility', -1)),        # ('Tầm nhìn', int(dataRaw['visibility'])),
-        float(dataRaw['wind']['speed']),        # ('Gió', float(dataRaw['wind']['speed'])),
+        float(dataRaw.get('wind',{}).get('speed', -1)),        # ('Gió', float(dataRaw['wind']['speed'])),
         now.date(),        # ('Ngày', now.date().strftime("%Y-%m-%d")),
         now,        # ('Thời gian', now.time().strftime("%H:%M:%S")),
         roundTime(now)        # ('Catching', roundTime(now)) # .time().strftime("%H:%M:%S") => lam tron gio

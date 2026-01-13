@@ -75,7 +75,7 @@ const ProfilePage = () => {
     <div className="mb-6">
       <h1 className="text-3xl font-bold">Xin chào!</h1>
       <p className="text-lg">
-        Username: <span className="font-semibold">{user?.nickName}</span>
+        Tên người dùng: <span className="font-semibold">{user?.nickName}</span>
       </p>
       <p className="text-lg">
         Email: <span className="font-semibold">{user?.email}</span>
@@ -95,8 +95,8 @@ const ProfilePage = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
-              <Label><b>City:</b> {user?.city ?? "Chưa có"}</Label>
-              <Label><b>Country:</b> {user?.country ?? "Chưa có"}</Label>
+              <Label><b>Thành phố:</b> {user?.city ?? "Chưa có"}</Label>
+              <Label><b>Quốc gia:</b> {user?.country ?? "Chưa có"}</Label>
             </div>
           </CardContent>
         </Card>
