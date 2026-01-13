@@ -36,9 +36,19 @@ Trong bối cảnh đô thị hóa và công nghiệp hóa mạnh mẽ, ô nhi�
 ---
 
 ## Tổng quan hệ thống
-![System](images/system.png)\n
+![System](images/system.png)
 
+---
 
-Start docker - 'docker compose up -d' ( modify password service Clickhouse )\n
-Start Nodejs - npm i && npm start\n
-Start Reactjs - npm run dev\n
+## Triển khai
+- Start docker - **docker compose up -d** ( modify password service Clickhouse )
+- Start Nodejs - **npm i && npm start**
+- Start Reactjs - **npm run dev**
+
+---
+
+## Kết quả thực hiện
+- Gửi email tới người dùng: 
+![Email](images/Email.png)
+-Data trong Clickhouse có thể dùng để phân tích dữ liệu
+![Data](images/Data.png)
