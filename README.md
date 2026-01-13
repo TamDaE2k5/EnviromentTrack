@@ -52,3 +52,6 @@ Trong bối cảnh đô thị hóa và công nghiệp hóa mạnh mẽ, ô nhi�
 ![Email](images/Email.png)
 -Data trong Clickhouse có thể dùng để phân tích dữ liệu
 ![Data](images/Data.png)
+
+---
+- Link video demo: **https://youtu.be/oMVINmSZ2rA**
